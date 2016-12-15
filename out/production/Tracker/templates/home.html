@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SciFi Film Tracker</title>
+</head>
+<br>
+SciFi Film tracker 1.01, 2016 <br>
+<br>
+Hello, {{loginName}}! <br>
+<br>
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form><br>
+Welcome to Sci-Fi film tracker by Scofield Services!!!<br>
+<br>
+This web-app will help you keep track of SciFi films!!!<br>
+<br>
+You will never miss one or forget their details again!!!
+<br>
+<br>
+<body>
+<form action="/create-film-entry" method="post">
+    <input type="text" placeholder="Film Title" name="titleInput" width="400"/><br>
+    <input type="text" placeholder="Film Writer" name="writerInput" width="400"/><br>
+    <input type="text" placeholder="Film Director" name="directorInput" width="400"/><br>
+    <input type="text" placeholder="Film Release Date" name="releaseInput" width="400"/><br>
+    <input type="text" placeholder="Seen it? [true] or [false]" name="seenInput" width="400"/><br>
+    <input type="text" placeholder="NOTES" name="notesInput" width="400"/><br>
+    <button type="submit" width="400">Save Film Entry</button>
+</form>
+
+
+{{#filmObjects}}
+    {{title}},<br>
+Written by: {{writer}}; Directed by: {{director}} Released: {{releaseYear}};  Seen: {{seen}}.<br>
+{{/filmObjects}}
+
+
+</body>
+</html>
