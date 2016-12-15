@@ -20,6 +20,7 @@ You will never miss one or forget their details again!!!
 <br>
 <br>
 <body>
+To add a film entry:
 <form action="/create-film-entry" method="post">
     <input type="text" placeholder="Film Title" name="titleInput" width="400"/><br>
     <input type="text" placeholder="Film Writer" name="writerInput" width="400"/><br>
@@ -27,15 +28,34 @@ You will never miss one or forget their details again!!!
     <input type="text" placeholder="Film Release Date" name="releaseInput" width="400"/><br>
     <input type="text" placeholder="Seen it? [true] or [false]" name="seenInput" width="400"/><br>
     <input type="text" placeholder="NOTES" name="notesInput" width="400"/><br>
-    <button type="submit" width="400">Save Film Entry</button>
+    <button type="submit" width="400">Save Film Entry</button><br>
 </form>
-
-
+<br>
+To delete a film entry:
+<form action="/delete-film-entry" method="post">
+    <input type="text" placeholder="Key in number of the entry to delete" name="filmKiller"/>
+    <button type="submit" width="400">Delete Film Entry</button><br>
+</form>
+<br>
+To edit a film entry:
+<form action="/edit-film-entry" method="post">
+    <input type="text" placeholder="Number to edit" name="filmRemover" width="400"><br>
+    <input type="text" placeholder="Film Title" name="titleInput" width="400"/><br>
+    <input type="text" placeholder="Film Writer" name="writerInput" width="400"/><br>
+    <input type="text" placeholder="Film Director" name="directorInput" width="400"/><br>
+    <input type="text" placeholder="Film Release Date" name="releaseInput" width="400"/><br>
+    <input type="text" placeholder="Seen it? [true] or [false]" name="seenInput" width="400"/><br>
+    <input type="text" placeholder="NOTES" name="notesInput" width="400"/><br>
+    <button type="submit" width="400">Edit Film Entry</button><br>
+</form>
+<br>
+<ol>
 {{#filmObjects}}
-    {{title}},<br>
-Written by: {{writer}}; Directed by: {{director}} Released: {{releaseYear}};  Seen: {{seen}}.<br>
+    <li>
+    Title:{{title}}  Written by:{{writer}}  Directed by:{{director}}  Released:{{release}}  Seen:{{seenBoolean}}  Notes:{{notes}}<br>
+    </li>
 {{/filmObjects}}
-
+</ol>
 
 </body>
 </html>

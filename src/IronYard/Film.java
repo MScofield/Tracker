@@ -6,7 +6,7 @@ package IronYard;
 public class Film {
 
     int id;
-//    int filmId;
+    int filmId;
     String userName;
     String title;
     String writer;
@@ -38,13 +38,13 @@ public class Film {
         this.id = id;
     }
 
-//    public int getFilmId() {
-//        return filmId;
-//    }
-//
-//    public void setFilmId(int filmId) {
-//        this.filmId = filmId;
-//    }
+    public int getFilmId() {
+        return filmId;
+    }
+
+    public void setFilmId(int filmId) {
+        this.filmId = filmId;
+    }
 
     public String getUserName() {
         return userName;

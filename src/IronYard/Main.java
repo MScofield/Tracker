@@ -157,11 +157,11 @@ public class Main {
                     filmIdString = "0";//temporary until I remember how to generate these
 //                    int filmIdNum = Integer.parseInt(filmId);
 //                    int releaseInputNum = Integer.parseInt(releaseInputString);
-                    boolean seenBoolean = Boolean.parseBoolean(seenString);
+                    boolean seen = Boolean.parseBoolean(seenString);
                     int filmId = Integer.parseInt(filmIdString);
 
 
-                    Film filmObject = new Film(filmId, nameInput, title, writer, director, release, notes, seenBoolean);
+                    Film filmObject = new Film(filmId, nameInput, title, writer, director, release, notes, seen);
                     user.films.add(filmObject);
 
 //                    response.redirect(request.headers("Referer"));
@@ -171,30 +171,40 @@ public class Main {
                 })
         );
 
-//        Spark.post(
-//                "/edit-film-entry",
-//                ((request, response) -> {
-//                    Session session = request.session();
-//                    String name = session.attribute("loginName");
-//                    User user = users.get(name);
-//                    String filmRemover = request.queryParams("filmRemover");
-//                    int fut = Integer.parseInt(filmRemover);
-//                    user.films.get(fut-1);
-//                    user.films.remove(fut-1);
-//
-//                    String filmReplacer = request.queryParams("filmReplacer")
-//                      or actually a bunch of these lines with most all of the variables that make up and Film object
-//                    Film  = new Film(filmReplacer);
-//
-//
-//
-//                    user.films.add(fut-1, title);
-//
-//                    response.redirect("/");
-//                    return "";
-//
-//                })
-//        );
+        Spark.post(
+                "/edit-film-entry",
+                ((request, response) -> {
+                    Session session = request.session();
+                    String name = session.attribute("loginName");
+                    User user = users.get(name);
+                    String filmRemover = request.queryParams("filmRemover");
+                    int fut = Integer.parseInt(filmRemover);
+                    user.films.get(fut-1);
+                    user.films.remove(fut-1);
+
+                    String filmReplacer = request.queryParams("filmReplacer");
+                    String title = request.queryParams("titleInput");
+                    String writer = request.queryParams("writerInput");
+                    String director = request.queryParams("directorInput");
+                    String release = request.queryParams("releaseInput");
+                    String notes = request.queryParams("notesInput");
+                    String seenString = request.queryParams("seenInput");
+                    String filmIdString = request.queryParams("filmId");
+                    filmIdString = "0";
+                    int filmId = Integer.parseInt(filmIdString);
+                    Boolean seen = Boolean.parseBoolean(seenString);
+
+                    Film filmObject = new Film(filmId, name, title, writer, director, release, notes, seen);
+
+
+
+                    user.films.add(fut-1, filmObject);
+
+                    response.redirect("/");
+                    return "";
+
+                })
+        );
         Spark.post(
                 "/delete-film-entry",
                 ((request, response) -> {
