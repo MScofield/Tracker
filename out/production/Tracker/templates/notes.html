@@ -34,5 +34,24 @@
 </head>
 <body>
 
+To delete a film entry:
+<form action="/delete-film-entry" method="post">
+    <input type="text" placeholder="Key in number of the entry to delete" name="filmKiller"/><br>
+    <button type="submit" width="400">Delete Film Entry</button><br>
+</form>
+<br>
+To edit a film entry:
+<form action="/edit-film-entry" method="post">
+    <input type="text" placeholder="Number to edit" name="filmRemover" width="400"><br>
+    <input type="hidden" value="{{replyId}}" name="replyId"/>
+    <input type="text" placeholder="Film Title" name="titleInput" width="400"/><br>
+    <input type="text" placeholder="Film Writer" name="writerInput" width="400"/><br>
+    <input type="text" placeholder="Film Director" name="directorInput" width="400"/><br>
+    <input type="text" placeholder="Film Release Date" name="releaseInput" width="400"/><br>
+    <input type="text" placeholder="Seen it? [true] or [false]" name="seenInput" width="400"/><br>
+    <input type="text" placeholder="NOTES" name="notesInput" width="400"/><br>
+    <button type="submit" width="400">Edit Film Entry</button><br>
+</form>
+
 </body>
 </html>

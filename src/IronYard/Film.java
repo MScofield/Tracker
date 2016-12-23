@@ -5,9 +5,8 @@ package IronYard;
  */
 public class Film {
 
-    int id;
-    int filmId;
-    String userName;
+    int    filmId;
+    int    userId;
     String title;
     String writer;
     String director;
@@ -18,9 +17,9 @@ public class Film {
     public Film() {
     }
 
-    public Film(int id, String userName, String title, String writer, String director, String releaseDate, String notes, Boolean seen) {
-        this.id = id;
-        this.userName = userName;
+    public Film(int filmId, int userId, String title, String writer, String director, String releaseDate, String notes, Boolean seen) {
+        this.filmId = filmId;
+        this.userId = userId;
         this.title = title;
         this.writer = writer;
         this.director = director;
@@ -30,12 +29,13 @@ public class Film {
 
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Film(String title, String writer, String director, String releaseDate, String notes, Boolean seen){
+        this.title = title;
+        this.writer = writer;
+        this.director = director;
+        this.releaseDate = releaseDate;
+        this.notes = notes;
+        this.seen = seen;
     }
 
     public int getFilmId() {
@@ -46,13 +46,9 @@ public class Film {
         this.filmId = filmId;
     }
 
-    public String getUserName() {
-        return userName;
-    }
+    public int getUserId() { return userId; }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    public void setUserId(int userId) { this.userId = userId; }
 
     public String getTitle() {
         return title;

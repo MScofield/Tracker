@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+To edit a film entry:
+{{#film}}
+<form action="/create-film-entry" method="post">
+    <input type="hidden" value="{{id}}" name="filmId"/>
+    <input type="text" value="{{title}}" name="titleInput" width="400"/><br>
+    <input type="text" value={{writer}} name="writerInput" width="400"/><br>
+    <input type="text" value={{director}} name="directorInput" width="400"/><br>
+    <input type="text" value={{releaseDate}} name="releaseInput" width="400"/><br>
+    <input type="text" value={{seen}} name="seenInput" width="400"/><br>
+    <input type="text" value={{notes}} name="notesInput" width="400"/><br>
+    <button type="submit" width="400">Save Film Entry</button><br>
+</form>
+{{/film}}
+
+</body>
+</html>
